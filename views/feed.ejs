@@ -1,12 +1,13 @@
 <%- include('partials/header') -%>
-  <div class="container">
-    <div class="col text-center mt-5">
-      <ul class="col list-unstyled">
+  <div class="container border">
+    <div id="carouselExampleControls" class="carousel slide border border-2 text-center" data-bs-ride="carousel">
+      <ul class="carousel-inner justify-content-center align-items-center list-unstyled border">
         <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col w-75 justify-content-center mt-5">
+          
+          <li class=" <%= i === 0 ?  'carousel-item active' : 'carousel-item'  %>">
             <a href="/post/<%= posts[i]._id%>">
               <h2><%= posts[i].title %></h2>
-              <img class="img-fluid" src="<%= posts[i].image%>">
+              <img class="d-block w-100" src= "<%= posts[i].image%>">
               <p><%= posts[i].caption %></p>
             </a>
             <h3 class="row-3">
@@ -23,6 +24,17 @@
           </li>
         <% } %>
         </ul>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+
     </div>
   </div>  
 <%- include('partials/footer') -%>
